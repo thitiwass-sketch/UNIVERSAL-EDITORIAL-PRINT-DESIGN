@@ -1,0 +1,6 @@
+{
+  "name": "Universal Editorial & Print Design AI OS",
+  "description": "Modular AI OS (v7.0 → v8.0 → v9.0) for Editorial, Graphic, and Print Design with Engine Registry, Dynamic Loading, and 100-Point QA Gate by ฐิติวัสส์ กาญจนพิมาย (NRRU).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
