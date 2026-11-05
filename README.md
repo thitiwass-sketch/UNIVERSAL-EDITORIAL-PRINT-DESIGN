@@ -1,287 +1,153 @@
-สถาปัตยกรรมแบบโมดูลาร์ของระบบปฏิบัติการ AI สำหรับงานออกแบบบรรณาธิการและสิ่งพิมพ์ (v7.0 → v8.0 → v9.0)
-แนวคิดสถาปัตยกรรมระบบอัจฉริยะด้านการออกแบบที่รองรับวิวัฒนาการในอนาคต
+# 🎨 Universal AI Design OS (Editorial & Print Architecture)
 
-ผู้ออกแบบระบบ: ฐิติสส กาญจน์พิมาย
+> **Modular, Future-Proof AI Architecture for Editorial, Graphic, and Print Design**  
+> *Versional Evolution: v7.0 → v8.0 → v9.0*
 
-สังกัด: คณะเทคโนโลยีอุตสาหกรรม มหาวิทยาลัยราชภัฏนครราชสีมา (NRRU)
+[![Version](https://img.shields.io/badge/version-v7.0_--_v9.0-blue.svg)](./)
+[![Architecture](https://img.shields.io/badge/architecture-Modular_AI_OS-brightgreen.svg)](./)
+[![Institution](https://img.shields.io/badge/NRRU-Industrial_Tech-orange.svg)](https://www.nrru.ac.th)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE)
 
-1. วิสัยทัศน์ของระบบ (System Vision)
-เวอร์ชัน 7.0 ปรับเปลี่ยนโครงสร้างระบบจากเดิมที่เป็น Prompt แบบรวมศูนย์ ไปสู่สถาปัตยกรรมระบบปฏิบัติการ AI แบบโมดูลาร์ (Modular AI OS) สำหรับงานออกแบบบรรณาธิการ กราฟิก และสิ่งพิมพ์ โดยกำหนดให้ระบบปฏิบัติการหลัก (CORE OS) มีความเสถียรสูงสุด ในขณะที่ความสามารถเฉพาะทางต่างๆ จะถูกขยายผ่าน Engine ที่แยกเวอร์ชันอย่างเป็นอิสระ ควบคุมคำสั่งจากส่วนกลาง โหลด Engine แบบไดนามิกตามบริบทงาน และกำกับคุณภาพด้วย QA Gate
+---
 
-2. แผนผังวิวัฒนาการระบบ (Long-Term Evolution Roadmap)
-v6.0: ระบบสั่งการด้วยคำสั่ง (Command-based System)
+## 📌 บทนำและวิสัยทัศน์ (Vision)
 
-v7.0: ระบบปฏิบัติการ AI แบบโมดูลาร์ (Modular AI OS)
+**Universal AI Design OS** คือสถาปัตยกรรมระบบปฏิบัติการ AI แบบโมดูลาร์ (Modular AI OS) ที่เปลี่ยนผ่านจากการใช้คำสั่งแบบรวมศูนย์ (Centralized Long Prompts) มาเป็นการประมวลผลผ่านโมดูลเฉพาะทางที่แยกอิสระจากกัน ออกแบบมาเพื่อรองรับงานบรรณาธิการ สิ่งพิมพ์ กราฟิก และการจัดการเลย์เอาต์ขั้นสูง 
 
-v8.0: ระบบปฏิบัติการ AI แบบโมดูลาร์อัจฉริยะ (Intelligent Modular AI OS)
+สถาปัตยกรรมนี้มุ่งเน้นการรักษาความเสถียรของ **ระบบปฏิบัติการหลัก (CORE OS)** ขณะเดียวกันก็อนุญาตให้ **Engine เฉพาะทาง** สามารถขพัฒนาและแยกย่อยเวอร์ชันได้อย่างอิสระตามการเติบโตของเทคโนโลยีและโจทย์การออกแบบในอนาคต
 
-v9.0: แพลตฟอร์มการออกแบบอัจฉริยะแบบหลาย Engine (Multi-Engine Design Intelligence Platform)
+---
 
-3. สถาปัตยกรรม v7.0 (v7.0 Modular Architecture)
-ผู้ใช้งาน / โครงการ
-       ↓
-ตัวกำหนดเส้นทางคำสั่ง (Command Router)
-       ↓
-ตัววิเคราะห์โครงการ (Project Analyzer)
-       ↓
-ระบบปฏิบัติการหลัก (CORE OS)
-       ↓
-ทะเบียน Engine (Engine Registry)
-       ↓
-การโหลด Engine แบบไดนามิก (Dynamic Engine Loading)
-       ↓
-Engine การออกแบบที่ใช้งานอยู่ (Active Design Engines)
-       ↓
-ด่านตรวจสอบคุณภาพ (QA Gate)
-       ↓
-ผลลัพธ์สุดท้าย (Final Output)
-4. ระบบปฏิบัติการหลัก (CORE OS)
-CORE OS ทำหน้าที่เป็น Single Source of Truth ควบคุมอัตลักษณ์และปรัชญาการออกแบบของระบบ ได้แก่ ความสมบูรณ์ของเนื้อหาและข้อมูล ความเป็นต้นฉบับ ลำดับชั้นสายตา (Visual Hierarchy) การจัดวางตัวอักษร ข้อจำกัดการผลิตสิ่งพิมพ์ การเข้าถึง ความพร้อมใช้งานระดับสากล ความปลอดภัย มาตรฐานคุณภาพ และกลไกขจัดข้อขัดแย้ง
+## 👤 ผู้สร้างและพัฒนา (Author)
 
-ลำดับความสำคัญ: CORE OS > กฎของ Engine > การตั้งค่าโครงการ
+* **ผู้สร้าง/ผู้ออกแบบระบบ:** ฐิติสส กาญจน์พิมาย (Thitis Kanjanaphimai)
+* **สังกัด:** คณะเทคโนโลยีอุตสาหกรรม มหาวิทยาลัยราชภัฏนครราชสีมา (NRRU)
 
-หลักการยึดถือ: หากฟังก์ชันใหม่สามารถพัฒนาเป็น Engine ได้ ห้ามปรับเปลี่ยนหรือเขียน CORE OS ใหม่โดยไม่จำเป็น
+---
 
-5. ทะเบียน Engine (Engine Registry)
-เป็นไดเรกทอรีส่วนกลางที่ลงทะเบียนและบันทึกข้อมูลของ Engine ทุกตัวในระบบ ประกอบด้วยโครงสร้างข้อมูลดังนี้:ENGINE_ID | ENGINE_NAME | ENGINE_VERSION | CATEGORY | PURPOSE | TRIGGERS | INPUTS | OUTPUTS | DEPENDENCIES | COMPATIBILITY | PRIORITY | QA_REQUIREMENTS | STATUS
+## 🗺️ แผนผังวิวัฒนาการระบบ (Evolution Roadmap)
 
-6. สัญญาของ Engine (Engine Contract)
-Engine ทุกตัวต้องผ่านการตรวจสอบตามข้อกำหนดโครงสร้างก่อนเปิดใช้งาน:
+```
+[ v6.0 ] ──> [ v7.0 Modular OS ] ──> [ v8.0 Intelligent OS ] ──> [ v9.0 Multi-Engine Platform ]
+ คำสั่งเดี่ยว        ระบบโมดูลาร์แยกส่วน      ระบบจัดสรรโมดูลอัจฉริยะ       แพลตฟอร์มการออกแบบร่วม
+```
 
-ENGINE
-├── ID
-├── NAME
-├── VERSION
-├── PURPOSE
-├── TRIGGER
-├── INPUT
-├── RULES
-├── PARAMETERS
-├── DEPENDENCIES
-├── PROCESS
-├── OUTPUT
-├── QA
-└── COMPATIBILITY
-7. คลัง Engine หลัก (Core Engine Libraries)
-ด้านบรรณาธิการ (Editorial): หนังสือ, วารสาร, นิตยสาร, โบรชัวร์, แคตตาล็อก, จดหมายข่าว, รายงาน
+* **v7.0 — Modular AI OS:** รากฐานสถาปัตยกรรมแยกส่วน (Core OS + Engine Registry + Command Router + QA Gate)
+* **v8.0 — Intelligent Modular AI OS:** เพิ่มเลเยอร์การจัดการอัจฉริยะ (Engine Orchestrator & Design Critic)
+* **v9.0 — Multi-Engine Design Platform:** ยกระดับเป็นแพลตฟอร์มการทำงานร่วมกันระหว่าง Engine เฉพาะทางต่างๆ
 
-ด้านองค์ประกอบภาพ (Visual): การจัดพิมพ์, ระบบตาราง (Grid), เค้าโครง (Layout), องค์ประกอบ, ทฤษฎีสี, รูปภาพ, ภาพประกอบ, ไอคอน, อินโฟกราฟิก, ลำดับชั้นสายตา
+---
 
-ด้านวิชาการ (Academic): ตำราเรียน, สิ่งพิมพ์งานวิจัย, สื่อการเรียนรู้, อัตลักษณ์ทางวิชาการ, การนำเสนอข้อมูลวิทยาศาสตร์
+## 🏗️ โครงสร้างสถาปัตยกรรม (System Architecture)
 
-ด้านการพิมพ์ (Print & Production): การจัดวางอักษรสำหรับการพิมพ์, การเตรียมไฟล์ก่อนพิมพ์ (Prepress), ระบบจัดการสี, ข้อมูลกระดาษ, เทคนิคการตกแต่งผิว, ข้อกำหนดการส่งออกไฟล์
-
-ด้านสากล (International): รองรับหลายภาษา, แบบอักษรไทย/อังกฤษ, การออกแบบตามมาตรฐานการเข้าถึง (Accessibility), งานบรรณาธิการระดับโลก
-
-ด้านความคิดสร้างสรรค์ (Creative Intelligence): การกำกับศิลป์, การสร้างแนวคิดการออกแบบ, ภาษาภาพ, การวิเคราะห์อ้างอิง, การวิจารณ์งานออกแบบ, วิวัฒนาการงานออกแบบ
-
-8. Engine สำหรับการขยายตัวในอนาคต (Future Engines)
-ระบบรองรับการลงทะเบียนและเปิดใช้งาน Engine ใหม่ได้ทันทีโดยไม่ต้องแก้ไข CORE OS เช่น:
-
-Packaging Engine (บรรจุภัณฑ์)
-
-Wayfinding & Signage Engine (ระบบนำทางและป้าย)
-
-Brand Identity Engine (อัตลักษณ์แบรนด์)
-
-Digital Publishing Engine (สื่อสิ่งพิมพ์ดิจิทัล)
-
-Exhibition & Environmental Graphics Engine (นิทรรศการและสิ่งแวดล้อม)
-
-UX Content Engine (เนื้อหาสำหรับการใช้งาน)
-
-Social Media Engine (สื่อสังคมออนไลน์)
-
-Motion Graphics Engine (ภาพเคลื่อนไหว)
-
-AR Content Engine (เนื้อหาความจริงเสมือน)
-
-9. การโหลด Engine แบบไดนามิก (Dynamic Engine Loading)
-ระบบจะไม่โหลด Engine ทั้งหมดพร้อมกัน แต่จะวิเคราะห์องค์ประกอบของงานล่วงหน้าเพื่อดึงเฉพาะ Engine ที่จำเป็นมาใช้งาน:
-
-ประเภทโครงการ + ความตั้งใจของผู้ใช้ + สื่อ + ผลลัพธ์ + ข้อจำกัด
-       ↓
-การค้นหา Engine
-       ↓
-การวิเคราะห์การพึ่งพากันของ Engine (Dependency Resolution)
-       ↓
-ชุด Engine ที่ใช้งานอยู่ (Active Engine Set)
-10. ตัวอย่างชุด Engine ตามประเภทงาน
-ปกหนังสือวิชาการ: BOOK + EDITORIAL + TYPOGRAPHY + GRID + IMAGE + ACADEMIC + PRINT + PREPRESS + QA
-
-โปสเตอร์: POSTER + TYPOGRAPHY + COMPOSITION + COLOR + IMAGE + PRINT + QA
-
-วารสารวิชาการ: JOURNAL + EDITORIAL + GRID + TYPOGRAPHY + ACADEMIC + MULTILINGUAL + PRINT + QA
-
-11. ตัวกำหนดเส้นทางคำสั่ง (Command Router)
-คำสั่งทำหน้าที่เป็นส่วนต่อประสาน (UI) ที่สั้นกระชับ โดยตัวกำหนดเส้นทางจะแปลงคำสั่งไปยัง Engine ที่เกี่ยวข้อง:
-
-การจัดการและวิเคราะห์: /project, /analyze, /brief, /strategy
-
-ประเภทสิ่งพิมพ์: /book, /journal, /magazine, /poster, /brochure, /catalogue, /report
-
-องค์ประกอบศิลป์: /typography, /grid, /layout, /composition, /color, /image, /infographic
-
-งานวิชาการ: /academic, /textbook, /research, /educational
-
-เทคนิคการพิมพ์: /print, /prepress, /paper, /finishing, /production
-
-มาตรฐานสากล: /international, /multilingual, /accessibility, /global
-
-การประกันคุณภาพ: /qa, /review, /critic, /validate, /audit
-
-การควบคุมระบบ: /engine, /registry, /version, /status, /help, /design, /auto, /expert
-
-12. เวิร์กโฟลว์ของคำสั่งหลัก /design
-เมื่อเรียกใช้คำสั่ง /design ระบบจะดำเนินการตามลำดับ:
-
-วิเคราะห์โครงการ → จัดประเภทสื่อ → เลือก Engine → ปปฏิบัติตาม CORE OS → กำหนดกลยุทธ์งานออกแบบ → สร้างผลลัพธ์ → ตรวจสอบคุณภาพด้วย QA Gate
-
-13. v8.0 — ระบบปฏิบัติการ AI แบบโมดูลาร์อัจฉริยะ (Intelligent Modular AI OS)
-เพิ่มเลเยอร์อัจฉริยะด้านการจัดการเพื่อควบคุม Engine โดยไม่ต้องเพิ่มความซับซ้อนให้ CORE OS:
-
-ผู้ใช้ → Command Router → Project Analyzer → Engine Search → Dependency Resolution 
-      → Engine Manager → CORE OS → Active Engines → Design Critic → QA Gate → Final Output
-ฟีเจอร์หลัก: การค้นหาและแก้ข้อขัดแย้งของ Engine อัตโนมัติ, การประสานงานข้าม Engine, เวิร์กโฟลว์แบบปรับตัวได้ (Adaptive Workflow) และระบบวิจารณ์การออกแบบเชิงลึก
-
-14. v9.0 — แพลตฟอร์มระบบอัจฉริยะด้านการออกแบบหลาย Engine (Multi-Engine Platform)
-ยกระดับสู่แพลตฟอร์มการทำงานร่วมกัน โดย Engine เฉพาะทางสามารถแลกเปลี่ยนข้อมูลโครงสร้างและจัดลำดับไปป์ไลน์การออกแบบร่วมกันได้:
-
-CORE OS
-   ↓
-System Manager (ตัวจัดการระบบ)
-   ├── Editorial Intelligence
-   ├── Visual Intelligence
-   ├── Production Intelligence
-   └── Academic / International Intelligence
-   ↓
-Design Critic (ตัววิจารณ์การออกแบบ)
-   ↓
-QA Gate (ด่านตรวจสอบคุณภาพ)
-   ↓
-Final System (ระบบสมบูรณ์)
-15. เวิร์กโฟลว์การทำงานร่วมกันข้าม Engine (Cross-Engine Collaboration)
-Book Creator Engine 
-  ↳ Editorial Engine 
-     ↳ Layout Engine 
-        ↳ Grid Engine 
-           ↳ Print Engine 
-              ↳ QA Engine
-แต่ละ Engine สร้างผลลัพธ์เฉพาะด้าน โดยมี System Manager ทำหน้าที่กำกับดูแลให้ตรงตามมาตรฐาน CORE OS และโจทย์ของโครงการ
-
-16. การกำหนดเวอร์ชันแบบอิสระ (Independent Versioning)
-CORE OS และ Engine แต่ละตัวพัฒนาเวอร์ชันแยกจากกัน เช่น:
-
-CORE OS v7.0
-
-Book Engine v2.3
-
-Typography Engine v3.2
-
-Print Engine v3.0
-
-Packaging Engine v1.0
-
-การอัปเกรด Major Version ของ CORE OS จะเกิดขึ้นเฉพาะเมื่อมีการเปลี่ยนแปลงหลักการระดับโครงสร้างหรือสัญญาความเข้ากันได้เท่านั้น
-
-17. ชั้นตรวจสอบความเข้ากันได้ (Compatibility Layer)
-ENGINE → Compatibility Check → Major Version Verification → Dependency Resolution → [ Activate / Block / Warning ]
-
-18. ด่านตรวจสอบคุณภาพ (QA Gate)
-QA คือชั้นการกำกับดูแลที่จำเป็นของระบบ:
-
-ผลลัพธ์การออกแบบ → QA Check ──(ผ่าน)──→ ขั้นตอนสุดท้าย (Final Output)
-                        │
-                     (ไม่ผ่าน)
-                        ↓
-                     ปรับแก้ (Revision) ──→ ตรวจสอบ QA ซ้ำ
-19. เกณฑ์การประเมินคุณภาพ 100 คะแนน (100-Point QA Framework)
-ความสมบูรณ์ของเนื้อหา (10 คะแนน)
-
-การจัดวางตัวอักษร Typography (10 คะแนน)
-
-ลำดับชั้นสายตา Visual Hierarchy (10 คะแนน)
-
-ระบบตารางและเค้าโครง Grid & Layout (10 คะแนน)
-
-คุณภาพงานบรรณาธิการ Editorial Quality (10 คะแนน)
-
-คุณภาพองค์ประกอบภาพ Visual Quality (10 คะแนน)
-
-การใช้สี Color System (10 คะแนน)
-
-อัตลักษณ์แบรนด์/วิชาการ Brand & Academic Identity (10 คะแนน)
-
-เทคนิคการผลิตสิ่งพิมพ์ Print Production (10 คะแนน)
-
-มาตรฐานสากลและการเข้าถึง International & Accessibility (10 คะแนน)
-
-หมายเหตุ: คะแนน QA เป็นกลไกควบคุมมาตรฐานภายใน ไม่ได้มาแทนที่การตัดสินใจสุดท้ายของนักออกแบบมืออาชีพ
-
-20. กฎการออกแบบระบบเพื่ออนาคต (Future-Proofing Rules)
-CORE OS ต้องเปลี่ยนแปลงอย่างระมัดระวังและเชื่องช้า
-
-Engine สามารถพัฒนาและเพิ่มฟีเจอร์ได้อย่างรวดเร็ว
-
-คำสั่งควบคุมต้องเรียบง่ายและตรงไปตรงมา
-
-ระบบการจัดการ (Orchestration) ต้องมีความชาญฉลาดสูง
-
-การตรวจสอบคุณภาพ (QA) เป็นกระบวนการบังคับที่ไม่สามารถข้ามได้
-
-ห้ามสร้าง CORE OS ใหม่ หากสามารถขยายฟังก์ชันด้วย Engine ได้
-
-ห้ามโหลด Engine ที่ไม่ได้ใช้งานในโครงการนั้น
-
-ห้ามเปิดโอกาสให้ Engine ส่งคำสั่งทับซ้อนหรือแทนที่ CORE OS
-
-ห้ามเปิดใช้งาน Engine ที่ไม่รองรับความเข้ากันได้โดยไม่แจ้งเตือน
-
-21. โครงสร้างสัญญาสถาปัตยกรรม (Architectural Structural Contract: v7–v9)
-CORE: หลักการและมาตรฐานกลาง
-
-ENGINE: ความสามารถเฉพาะทาง
-
-COMMAND: ส่วนต่อประสานการสั่งการ
-
-REGISTRY: คลังความรู้และดรรชนีของ Engine
-
-ORCHESTRATOR: ตัวประสานงานกระบวนการ
-
-QA: การกำกับดูแลคุณภาพ
-
-VERSION CONTROL: วิวัฒนาการของระบบ
-
-22. ผังโครงสร้างสถาปัตยกรรมระบบขั้นสุดท้าย (Final Architecture Diagram)
-                  UNIVERSAL AI DESIGN OS
-                            │
-                       ┌────┴────┐
-                       │ CORE OS │
-                       └────┬────┘
-                            │
-                     ENGINE REGISTRY
-                            │
-     ┌──────────────────────┼──────────────────────┐
-     ↓                      ↓                      ↓
-Media Design Expert     Specific               Specific
-     Engines             Engine                 Engine
-     └──────────────────────┼──────────────────────┘
-                            ↓
-                      Command Router
-                            ↓
+```gantt
+┌─────────────────────────────────────────────────────────┐
+│                 UNIVERSAL AI DESIGN OS                  │
+└────────────────────────────┬────────────────────────────┘
+                             │
+                      ┌──────┴──────┐
+                      │   CORE OS   │ (Single Source of Truth)
+                      └──────┬──────┘
+                             │
+                      ENGINE REGISTRY
+                             │
+     ┌───────────────────────┼───────────────────────┐
+     ▼                       ▼                       ▼
+Media Design Expert    Academic Design         Print Production
+      Engines              Engines                  Engines
+     └───────────────────────┼───────────────────────┘
+                             │
+                       Command Router
+                             │
                     Process Orchestrator
-                            ↓
-                         QA Gate
-                            ↓
-                       Final Output
-23. สรุปอัตลักษณ์ของระบบ (Final System Identity)
-ระบบปฏิบัติการ AI สำหรับงานออกแบบบรรณาธิการและสิ่งพิมพ์สากล ใช้ v7.0 เป็นรากฐานสถาปัตยกรรม, v8.0 เพิ่มเลเยอร์การจัดการอัจฉริยะ, และ v9.0 ยกระดับสู่แพลตฟอร์มความร่วมมือแบบ multi-engine เป้าหมายระยะยาวคือการสร้างสถาปัตยกรรมที่เสถียร ยืดหยุ่น และพร้อมขยายความสามารถใหม่ๆ ผ่าน Engine โดยไม่กระทบความเสถียรของ CORE OS
+                             │
+                        QA Gate (100-pt)
+                             │
+                        Final Output
+```
 
-24. กฎทองคำของระบบ (Golden Rules)
-ห้ามสร้าง Core ใหม่ หากสามารถขยายความสามารถด้วย Engine ได้
+---
 
-Core ต้องเสถียร และ Engine พัฒนาได้อย่างอิสระ
+## 🧱 องค์ประกอบสำคัญของระบบ (Core Components)
 
-คำสั่งต้องประสานงานกัน อย่างมีเอกภาพ
+### 1. CORE OS (ระบบปฏิบัติการหลัก)
+ทำหน้าที่เป็น **Single Source of Truth** คุมกฎเหล็ก มาตรฐานคุณภาพ ปรัชญาการออกแบบ การจัดวางตัวอักษร (Typography) ลำดับชั้นสายตา (Visual Hierarchy) และข้อจำกัดทางเทคนิคสิ่งพิมพ์
+> **ลำดับความสำคัญ:** `CORE OS` > `Engine Rules` > `Project Settings`
 
-QA ต้องเป็นผู้รับประกันคุณภาพผลลัพธ์ เสมอ
+### 2. Engine Registry & Contract (ทะเบียนและสัญญา Engine)
+Engine ทุกตัวที่เข้ามาร่วมในระบบต้องลงทะเบียนโครงสร้างตามข้อกำหนด (Engine Contract):
+```text
+ENGINE
+├── ID / NAME / VERSION
+├── PURPOSE / TRIGGER / INPUT / OUTPUT
+├── RULES / PARAMETERS / DEPENDENCIES
+└── QA / COMPATIBILITY
+```
+
+### 3. Dynamic Engine Loading (การโหลดโมดูลแบบไดนามิก)
+ระบบจะไม่โหลด Engine ทั้งหมด แต่จะประเมินจากโจทย์งาน (Intent/Media Constraints) เพื่อดึงเฉพาะโมดูลที่จำเป็นมาใช้งาน:
+
+$$\text{Project Context} + \text{User Intent} \longrightarrow \text{Registry Lookup} \longrightarrow \text{Active Engine Set}$$
+
+---
+
+## 📚 ไลบรารี Engine (Engine Libraries)
+
+| หมวดหมู่ (Category) | รายชื่อ Engine ในระบบ |
+| :--- | :--- |
+| **Editorial** | Book, Journal, Magazine, Brochure, Catalogue, Newsletter, Report |
+| **Visual Elements** | Typography, Grid, Layout, Composition, Color, Image, Infographic, Visual Hierarchy |
+| **Academic** | Textbook, Research Publication, Educational Media, Scientific Data |
+| **Print & Production**| Prepress, Color Management, Paper Specs, Finishing, Production Export |
+| **International** | Multilingual, Thai Typography, Accessibility, Global Editorial |
+| **Creative Intelligence** | Art Direction, Design Concept, Visual Language, Design Critic |
+| **Future Engines** | Packaging, Wayfinding, Brand Identity, Digital Publishing, AR/Motion |
+
+---
+
+## ⚡ ตัวอย่างการสั่งการ (Commands & Usage)
+
+ระบบควบคุมผ่านคำสั่งสั้นกระชับ (Command Router) เช่น:
+
+* `/design` — ดำเนินการวิเคราะห์สื่อ เลือก Engine ออกแบบ และเข้าสู่ QA Gate อัตโนมัติ
+* `/book` / `/journal` / `/poster` — เรียกใช้ชุด Engine สำหรับสื่อเฉพาะทาง
+* `/typography` / `/grid` / `/color` — ปรับแต่งองค์ประกอบศิลป์เฉพาะส่วน
+* `/qa` / `/audit` — ดำเนินการประเมินคุณภาพงานตามเกณฑ์ 100 คะแนน
+
+**ตัวอย่างเวิร์กโฟลว์การเลือก Engine สำหรับปกหนังสือวิชาการ:**
+```bash
+/design --target="Academic Book Cover" 
+# Active Engines: [BOOK] + [EDITORIAL] + [TYPOGRAPHY] + [GRID] + [ACADEMIC] + [PRINT] + [QA]
+```
+
+---
+
+## 🛡️ ด่านตรวจสอบคุณภาพ (100-Point QA Framework)
+
+ทุกผลลัพธ์จากระบบจะต้องผ่านการประเมินคุณภาพในด่าน **QA Gate** ตามเกณฑ์ 10 ด้าน (ด้านละ 10 คะแนน):
+
+1. **Content Integrity** — ความสมบูรณ์ของเนื้อหา
+2. **Typography** — การจัดวางและเลือกใช้ตัวอักษร
+3. **Visual Hierarchy** — ลำดับชั้นสายตา
+4. **Grid & Layout** — โครงสร้างตารางและเค้าโครง
+5. **Editorial Quality** — คุณภาพบรรณาธิการ
+6. **Visual Quality** — คุณภาพองค์ประกอบภาพ
+7. **Color System** — ระบบและการใช้สี
+8. **Brand/Academic Identity** — อัตลักษณ์ทางวิชาการและแบรนด์
+9. **Print Production** — เทคนิคและการเตรียมงานพิมพ์
+10. **Accessibility & Global** — มาตรฐานการเข้าถึงและสากล
+
+---
+
+## 🥇 กฎทองคำของระบบ (Golden Rules)
+
+1. **Keep Core Stable, Evolve Engines Fast:** ห้ามสร้าง Core OS ใหม่หากสามารถขยายระบบด้วย Engine ได้
+2. **Do Not Overload:** โหลดเฉพาะ Engine ที่จำเป็นต่อโครงการเท่านั้น
+3. **No Engine Override:** ห้ามไม่ให้ Engine ใดๆ ส่งคำสั่งแทนที่หรือทับซ้อนหลักการของ CORE OS
+4. **Mandatory Governance:** การตรวจสอบคุณภาพ (QA Gate) เป็นขั้นตอนบังคับที่ไม่สามารถต่อรองหรือละเว้นได้
+
+---
+
+## 📄 ใบอนุญาต (License)
+
+สถาปัตยกรรมนี้เผยแพร่ภายใต้ใบอนุญาต [MIT License](LICENSE) - สามารถนำไปศึกษา ขยายความ หรือพัฒนาต่อยอดได้อย่างอิสระโดยอ้างอิงผู้สร้างสรรค์เดิม
